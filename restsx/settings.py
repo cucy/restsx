@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     "goods",
     "trade",
     "user_operation.apps.UserOperationConfig",
+
     "xadmin",
     "DjangoUeditor",
+    "crispy_forms",
 
     
     'django.contrib.admin',
