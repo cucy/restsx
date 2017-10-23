@@ -1,8 +1,7 @@
 from rest_framework import mixins, viewsets
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.response import Response
-from rest_framework import status
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import GoodsSerializer
 from .models import Goods
@@ -25,10 +24,7 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsResultsSetPagination
+    
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('name', 'shop_price')
 
-    def get_queryset(self):
-        queryset = Goods.objects.all()
-        price_min = self.request.query_params.get("price_min", 0)
-        if price_min:
-            queryset = queryset.filter(shop_price__gt=int(price_min) )
-        return queryset
