@@ -3,6 +3,8 @@ from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 
+from .filters import GoodsFilter
+
 from .serializers import GoodsSerializer
 from .models import Goods
 
@@ -24,7 +26,8 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsResultsSetPagination
-    
+
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('name', 'shop_price')
 
+    filter_class = GoodsFilter
