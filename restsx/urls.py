@@ -25,9 +25,9 @@ from django.views.static import serve
 router = DefaultRouter()
 
 # 配置goodurl
-router.register(r'goods', GoodsListViewSet)
+router.register(r'goods', GoodsListViewSet, base_name="goods")
 # 配置 category url
-router.register(r'categorys', CategoryViewset)
+router.register(r'categorys', CategoryViewset, base_name="categorys")
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
