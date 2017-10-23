@@ -34,12 +34,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "apps.users.apps.UsersConfig",
+    "goods",
+    "trade",
+    "user_operation.apps.UserOperationConfig",
+    "xadmin",
+    "DjangoUeditor",
+
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
 ]
 
 MIDDLEWARE = [
