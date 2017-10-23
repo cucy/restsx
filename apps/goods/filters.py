@@ -13,7 +13,7 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
     """
     price_min = django_filters.filters.NumberFilter(name="shop_price", lookup_expr='gte')  # 大于等于
     price_max = django_filters.filters.NumberFilter(name="shop_price", lookup_expr='lte')  # 小于等于
-    name = django_filters.filters.CharFilter(name="name", lookup_expr='icontains')  # 模糊查询忽略大小写
+    name = django_filters.filters.CharFilter(name="name", lookup_expr='icontains')  # 忽略大小写
 
     class Meta:
         model = Goods
