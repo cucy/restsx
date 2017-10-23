@@ -25,3 +25,10 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsResultsSetPagination
+
+    def get_queryset(self):
+        queryset = Goods.objects.all()
+        price_min = self.request.query_params.get("price_min", 0)
+        if price_min:
+            queryset = queryset.filter(shop_price__gt=int(price_min) )
+        return queryset
