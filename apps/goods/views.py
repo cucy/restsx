@@ -6,8 +6,8 @@ from rest_framework import filters
 
 from .filters import GoodsFilter
 
-from .serializers import GoodsSerializer
-from .models import Goods
+from .serializers import GoodsSerializer,CategorySerializer
+from .models import Goods, GoodsCategory
 
 
 class GoodsResultsSetPagination(PageNumberPagination):
@@ -35,3 +35,14 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     ordering_fields = ('sold_num', 'add_time')  # 排序
 
     filter_class = GoodsFilter
+
+
+class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    list:
+        商品分类列表数据
+    retrieve:
+        获取商品分类详情
+    """
+    queryset = GoodsCategory.objects.filter(category_type=1)
+    serializer_class = CategorySerializer

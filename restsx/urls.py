@@ -18,7 +18,7 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 
 import xadmin
-from goods.views import GoodsListViewSet
+from goods.views import GoodsListViewSet, CategoryViewset
 from restsx.settings import MEDIA_ROOT
 from django.views.static import serve
 
@@ -26,6 +26,8 @@ router = DefaultRouter()
 
 # 配置goodurl
 router.register(r'goods', GoodsListViewSet)
+# 配置 category url
+router.register(r'categorys', CategoryViewset)
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
