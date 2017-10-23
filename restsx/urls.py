@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework.documentation import include_docs_urls
 
 import xadmin
 from goods.views_base import GoodsListView
@@ -26,4 +27,5 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 
     url(r'^goods/', GoodsListView.as_view(), name="goods-list"),
+    url(r'docs/', include_docs_urls(title="慕学生鲜")),
 ]
