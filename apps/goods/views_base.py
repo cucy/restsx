@@ -14,14 +14,14 @@ class GoodsListView(View):
         :param request:
         :return
         """
-        json_list = []
+        
         goods = Goods.objects.all()[:10]
 
-        from django.forms.models import model_to_dict
-        from django.http import HttpResponse
         import json
+        from django.core import serializers
+        from django.http import JsonResponse
 
-        for good in goods:
-            json_dict = model_to_dict(good)
-            json_list.append(json_dict)
-        return HttpResponse(json.dumps(json_list), content_type="application/json")
+        json_data = serializers.serialize('json', goods)
+        json_data = json.loads(json_data)
+
+        return JsonResponse(json_data, safe=False)  # 包含数组的时候设置 safe=False s
