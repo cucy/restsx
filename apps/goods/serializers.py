@@ -4,6 +4,7 @@ __date__ = '2017/10/23 17:25'
 __author__ = 'zhourudong'
 from rest_framework import serializers
 
+
 from goods.models import Goods, GoodsCategory
 
 

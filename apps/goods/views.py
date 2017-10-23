@@ -1,5 +1,5 @@
-from django.http import Http404
-from rest_framework.views import APIView
+from rest_framework import mixins
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -7,12 +7,12 @@ from .serializers import GoodsSerializer
 from .models import Goods
 
 
-class GoodsListView(APIView):
+class GoodsListView(mixins.ListModelMixin, generics.GenericAPIView):
     """
-    List all goods.
+    商品列表页.
     """
+    queryset = Goods.objects.all()
+    serializer_class = GoodsSerializer
 
-    def get(self, request, format=None):
-        goods = Goods.objects.all()[:10]
-        goods_serializer = GoodsSerializer(goods, many=True)  # many=True 因为goods是列表
-        return Response(goods_serializer.data)     # serializer.data 实例serializer后的数据
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
