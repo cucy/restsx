@@ -18,7 +18,7 @@ from django.contrib import admin
 from rest_framework.documentation import include_docs_urls
 
 import xadmin
-from goods.views_base import GoodsListView
+from goods.views import GoodsListView
 from restsx.settings import MEDIA_ROOT
 from django.views.static import serve
 
