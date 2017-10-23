@@ -28,9 +28,10 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = GoodsSerializer
     pagination_class = GoodsResultsSetPagination
 
-    filter_backends = (DjangoFilterBackend, filters.SearchFilter,)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('name', 'shop_price')  # 过滤
 
     search_fields = ('^goods_desc', '=name', "goods_brief")  # 搜索   ^开头 =等于
+    ordering_fields = ('sold_num', 'add_time')  # 排序
 
     filter_class = GoodsFilter
