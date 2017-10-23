@@ -70,7 +70,7 @@ TEMPLATES = [
         },
     },
 ]
-
+AUTH_USER_MODEL = 'users.UserProfile'
 WSGI_APPLICATION = 'restsx.wsgi.application'
 
 
