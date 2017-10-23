@@ -7,12 +7,9 @@ from .serializers import GoodsSerializer
 from .models import Goods
 
 
-class GoodsListView(mixins.ListModelMixin, generics.GenericAPIView):
+class GoodsListView(generics.ListAPIView):
     """
     商品列表页.
     """
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
-
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
