@@ -42,8 +42,15 @@ urlpatterns = [
 
 
 
-
+# drf 自带的认证接口
 from rest_framework.authtoken import views
 urlpatterns += [
     url(r'^api-token-auth/', views.obtain_auth_token)
+]
+
+# jwt认证
+from rest_framework_jwt.views import obtain_jwt_token
+urlpatterns += [
+
+    url(r'^jwt-auth/', obtain_jwt_token),
 ]

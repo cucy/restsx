@@ -27,3 +27,11 @@ http://127.0.0.1:8000/api-token-auth/
 
 http://projectsedu.com/archives/
 ```
+
+```
+jwt 
+http://lion1ou.win/2017/01/18/
+pip install djangorestframework-jwt==1.11.0
+```
+
+
