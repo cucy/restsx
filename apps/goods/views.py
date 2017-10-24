@@ -1,12 +1,13 @@
 from rest_framework import mixins, viewsets
 from rest_framework import generics
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 
 from .filters import GoodsFilter
 
-from .serializers import GoodsSerializer,CategorySerializer
+from .serializers import GoodsSerializer, CategorySerializer
 from .models import Goods, GoodsCategory
 
 
@@ -35,6 +36,9 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     ordering_fields = ('sold_num', 'add_time')  # 排序
 
     filter_class = GoodsFilter
+
+    # authentication_classes = (TokenAuthentication, )   # 对这个接口启用token认证功能
+    # 公共的页面不应该配置 token认证
 
 
 class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
