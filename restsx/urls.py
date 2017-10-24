@@ -37,3 +37,13 @@ urlpatterns = [
     url(r'^docs/', include_docs_urls(title="慕学生鲜")),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+
+
+
+
+
+from rest_framework.authtoken import views
+urlpatterns += [
+    url(r'^api-token-auth/', views.obtain_auth_token)
+]
