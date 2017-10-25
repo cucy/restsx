@@ -102,7 +102,6 @@ AUTHENTICATION_BACKENDS = (
     'users.views.CustomBackend',
 )
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -164,4 +163,17 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',   # 取消全局  TokenAuthentication认证
     )
+}
+
+# JWT配置相关 https://github.com/GetBlimp/django-rest-framework-jwt/blob/master/docs/index.md
+
+import datetime
+
+JWT_AUTH = {
+    # 过期时间配置
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+
+    #  默认头关键字        
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+
 }
