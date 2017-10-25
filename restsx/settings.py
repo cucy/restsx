@@ -97,6 +97,12 @@ TEMPLATES = [
 AUTH_USER_MODEL = 'users.UserProfile'
 WSGI_APPLICATION = 'restsx.wsgi.application'
 
+# 使用自定义的后台认证
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
+
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
