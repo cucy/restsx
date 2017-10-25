@@ -177,3 +177,9 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 
 }
+
+
+
+
+# 云片APIkey
+APIKEY="xxxx"
