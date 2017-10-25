@@ -21,7 +21,7 @@ import xadmin
 from goods.views import GoodsListViewSet, CategoryViewset
 from restsx.settings import MEDIA_ROOT
 from django.views.static import serve
-from users.views import SmsCodeViewset
+from users.views import SmsCodeViewset ,UserViewset
 router = DefaultRouter()
 
 # 配置goodurl
@@ -29,6 +29,8 @@ router.register(r'goods', GoodsListViewSet, base_name="goods")
 # 配置 category url
 router.register(r'categorys', CategoryViewset, base_name="categorys")
 router.register(r'code', SmsCodeViewset, base_name="code")
+# 用户注册
+router.register(r'users', UserViewset, base_name="users")
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
