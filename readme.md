@@ -35,3 +35,10 @@ pip install djangorestframework-jwt==1.11.0
 ```
 
 
+
+# drf缓存
+``` 
+https://github.com/chibisov/drf-extensions
+
+
+```

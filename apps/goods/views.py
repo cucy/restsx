@@ -4,6 +4,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
 
 from .filters import GoodsFilter
 
@@ -20,8 +21,9 @@ class GoodsResultsSetPagination(PageNumberPagination):
     page_query_param = "q"  # 后边的 http://xxx/?p=1
     max_page_size = 100
 
+# CacheResponseMixin 缓存功能
 
-class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class GoodsListViewSet(CacheResponseMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     商品列表页.
     """
