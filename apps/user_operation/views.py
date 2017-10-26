@@ -22,7 +22,7 @@ class UserFavViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Retr
     create:
         收藏商品
     """
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly) # IsAuthenticated必须先登录 IsOwnerOrReadOnly 只能删除自己的对象z
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
     lookup_field = "goods_id"
 
