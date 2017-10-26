@@ -42,3 +42,10 @@ https://github.com/chibisov/drf-extensions
 
 
 ```
+
+# redis
+``` 
+https://github.com/niwinz/django-redis
+
+
+```
