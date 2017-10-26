@@ -54,3 +54,10 @@ https://github.com/niwinz/django-redis
 http://www.django-rest-framework.org/api-guide/throttling/#userratethrottle
 
 ```
+
+# 第三方认证 oauth
+``` 
+   https://github.com/python-social-auth/social-app-django
+
+
+```
