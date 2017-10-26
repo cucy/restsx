@@ -49,3 +49,8 @@ https://github.com/niwinz/django-redis
 
 
 ```
+# 限速
+``` 
+http://www.django-rest-framework.org/api-guide/throttling/#userratethrottle
+
+```
