@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'raven.contrib.django.raven_compat',
 
 ]
 
@@ -196,4 +197,15 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
+}
+
+
+
+import raven
+
+RAVEN_CONFIG = {
+    'dsn': 'http://34194604e3da46f6a2bee19462af4347:7b41b44770804262bc56e18f32dcba62@192.168.193.133:9000/2',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 }
