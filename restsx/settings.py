@@ -106,6 +106,7 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+""" 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -116,6 +117,16 @@ DATABASES = {
         'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
 }
+""" 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -202,10 +213,11 @@ CACHES = {
 
 
 import raven
-
+"""
 RAVEN_CONFIG = {
     'dsn': 'http://34194604e3da46f6a2bee19462af4347:7b41b44770804262bc56e18f32dcba62@192.168.193.133:9000/2',
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 }
+"""
