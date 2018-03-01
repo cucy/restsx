@@ -61,3 +61,13 @@ http://www.django-rest-framework.org/api-guide/throttling/#userratethrottle
 
 
 ```
+
+
+# 安装步骤
+```
+python manage.py migrate
+
+python import_category_data.py
+python import_goods_data.py 
+```
+
