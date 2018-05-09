@@ -118,3 +118,55 @@ class UserViewset(CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveMode
     #
     # def perform_create(self, serializer):
     #     return serializer.save()
+
+    
+    
+  
+
+
+
+
+"""
+class UserViewset(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, GenericViewSet):
+    """
+    用户
+    """
+    serializer_class = UserRegSerializer
+    queryset = User.objects.all()
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    # permission_classes =
+
+    def get_permissions(self):
+        """
+        创建用户时,不需要登录认证
+        """
+        if self.action == "retrieve":
+            return [permissions.IsAuthenticated()]
+        elif self.action == "create":
+            return []
+        return []
+
+    def create(self, request, *args, **kwargs):
+        # 用户创建成功返回一个token
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = self.perform_create(serializer)
+
+        re_dict = serializer.data
+        payload = jwt_payload_handler(user)
+        re_dict["token"] = jwt_encode_handler(payload)
+        re_dict["username"] = user.username
+
+        headers = self.get_success_headers(serializer.data)
+        return Response(re_dict, status=status.HTTP_201_CREATED, headers=headers)
+
+    def get_object(self):
+        return self.request.user
+
+    def perform_create(self, serializer):
+        # 对密码加密存储
+        password = serializer.validated_data.get('password')
+        serializer.validated_data['password'] = make_password(password)
+        return serializer.save()
+
+"""
