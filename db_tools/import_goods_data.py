@@ -34,3 +34,7 @@ for goods_detail in row_data:
         goods_image_instance.image = goods_image
         goods_image_instance.goods = goods
         goods_image_instance.save()
+
+
+if __name__ == '__main__':
+    pass

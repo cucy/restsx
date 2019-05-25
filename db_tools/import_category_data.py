@@ -40,3 +40,7 @@ for lev1_cat in row_data:
             lev3_intance.parent_category = lev2_intance
             lev3_intance.save()
 
+
+
+if __name__ == '__main__':
+    pass

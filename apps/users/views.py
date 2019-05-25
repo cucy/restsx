@@ -124,9 +124,10 @@ class UserViewset(CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveMode
   
 
 
+''' 
 
 
-"""
+
 class UserViewset(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, GenericViewSet):
     """
     用户
@@ -169,4 +170,6 @@ class UserViewset(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, Generi
         serializer.validated_data['password'] = make_password(password)
         return serializer.save()
 
-"""
+
+
+'''
