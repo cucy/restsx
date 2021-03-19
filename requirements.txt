@@ -1,6 +1,6 @@
 Django>=1.11.20,<2.0
 django-filter==1.0.4
-djangorestframework==3.6.4
+djangorestframework==3.11.2
 django-guardian==1.4.9
 coreapi==2.3.1
 Markdown==2.6.9
